@@ -170,6 +170,183 @@
 //PROMISE
 
 
+// function myDay(wokeUp){
+//     return new Promise((resolve, reject)=>{
+//         console.log("start of the day");
+
+//         setTimeout(() => {
+//             console.log('wait...');
+        
+//             if (wokeUp !== true){
+//                 reject("you still sleep");
+//             } else{
+//                 resolve('you woke up');
+//             }
+        
+//         },2000)
+//     })
+// };
+
+// function cleanTeeth (toothPaste){
+//     return new Promise((resolve, reject)=>{
+//         console.log("I'm going to clean teeth");
+
+//         setTimeout(() =>{
+//             console.log("looking for toothpaste...");
+
+//             if (toothPaste !== true){
+//                 reject("there no paste...(");
+//             } else{
+//                 resolve("Yep! You cleaned your teeth!");
+//             }
+//         },2500)
+//         })
+// };
+
+// function coockDinner (isFood){
+//     return new Promise((resolve,reject)=>{
+
+//         console.log('looking foor food...');
+
+//         setTimeout(()=>{
+//             if (isFood !== true){
+//                 reject("there no food");
+//             }else{
+//                 resolve("it was so tasty!");
+//             }
+//         },3000)
+    
+//     })
+// };
+
+// function wearClothes (isClothes){
+//     return new Promise((resolve,reject)=>{
+//         console.log("looking for clothes...");
+
+//         setTimeout(()=>{
+//             if(isClothes !== true){
+//                 reject("there no clothes");
+//             } else{
+//                 resolve("I find my clothes")
+//             }
+//         },2500)
+//     })
+// };
+
+// function driveByBus (isMoney){
+//     return new Promise((resolve, reject)=>{
+//         console.log("waiting for a Bus...");
+
+//         setTimeout(()=>{
+//             if(isMoney <= 7){
+//                 reject("no money");
+//             } else{
+//                 resolve("driving to school");
+//             };
+//         },2500)
+//     })
+// };
+
+// function studying (lessons){
+//     return new Promise((resolve,reject)=>{
+//         console.log("I'm study a Python...")
+
+//         setTimeout(()=>{
+//             if(lessons > 5){
+//                 reject("it's so many lessons, I go home!")
+//             } else{
+//                 resolve('I finish school, it was great!');
+//             };
+//         },2000);
+//     })
+// };
+
+// function haveFun (money){
+//     return new Promise((resolve,reject)=>{
+//         console.log("I'm going to find a club...");
+
+//         setTimeout(()=>{
+//             if(money < 500){
+//                 reject('you have no money((((');
+//             } else{
+//                 resolve("I`m Junior, I have a lot of money!");
+//             };
+//         },2000);
+//     })
+  
+// };
+
+// function goSleep (tired){
+//     return new Promise((resolve,reject)=>{
+//         console.log("if I tired, i'll go sleep...");
+
+//         setTimeout(()=>{
+//             if(tired !== true){
+//                 reject('I`m not tired! I`m so young!');
+//             } else{
+//                 resolve('I`m going to go home');
+//             };
+//         },3000);
+//     })
+  
+// };
+
+
+
+// myDay(true)
+// .then((result) => {
+//     console.log(result);
+
+//     return cleanTeeth (true);
+// })
+// .then((teeth) => {
+//     console.log(teeth);
+
+//     return coockDinner (true);
+// })
+// .then((food) =>{
+//     console.log(`I FIND FOOD! ${food}`);
+
+//     return wearClothes (true);
+// })
+// .then((clothes) =>{
+//     console.log(clothes);
+
+//     return driveByBus(10);
+// })
+// .then((isEnoughMoney)=>{
+//     console.log(isEnoughMoney);
+
+//     return studying(3);
+// })
+// .then((lessonsValue)=>{
+//     console.log(lessonsValue);
+
+//     return haveFun(10000);
+// })
+// .then((haveMoney)=>{
+//     console.log(haveMoney);
+
+//     return goSleep(true);
+// })
+// .then((isTired)=>{
+//     console.log(isTired)
+// })
+
+
+
+// .catch(err => {
+//     console.log(err)
+//   })
+//   .finally(() => {
+//     console.log('the end');
+//   })
+
+
+  //ASYNC AWAIT
+
+
+
 function myDay(wokeUp){
     return new Promise((resolve, reject)=>{
         console.log("start of the day");
@@ -291,53 +468,31 @@ function goSleep (tired){
   
 };
 
+async function allDay(){
+  
+        let morning = await myDay(true);
+        console.log(morning);
 
+        let teeth = await cleanTeeth(true);
+        console.log(teeth);
 
-myDay(true)
-.then((result) => {
-    console.log(result);
+        let food = await coockDinner(true);
+        console.log(food);
 
-    return cleanTeeth (true);
-})
-.then((teeth) => {
-    console.log(teeth);
+        let clothes = await wearClothes(true);
+        console.log(clothes);
 
-    return coockDinner (true);
-})
-.then((food) =>{
-    console.log(`I FIND FOOD! ${food}`);
+        let autoBus = await driveByBus(10);
+        console.log(autoBus);
 
-    return wearClothes (true);
-})
-.then((clothes) =>{
-    console.log(clothes);
+        let qOfLessons = await studying(2);
+        console.log(qOfLessons);
 
-    return driveByBus(10);
-})
-.then((isEnoughMoney)=>{
-    console.log(isEnoughMoney);
+        let club = await haveFun(999);
+        console.log(club);
 
-    return studying(3);
-})
-.then((lessonsValue)=>{
-    console.log(lessonsValue);
+        let isTired = await goSleep(true);
+        console.log(isTired);
+};
 
-    return haveFun(10000);
-})
-.then((haveMoney)=>{
-    console.log(haveMoney);
-
-    return goSleep(true);
-})
-.then((isTired)=>{
-    console.log(isTired)
-})
-
-
-
-.catch(err => {
-    console.log(err)
-  })
-  .finally(() => {
-    console.log('the end');
-  })
+allDay()
